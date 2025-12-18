@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter Apple Features</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: url("/static/assets/form.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 40px 30px;
+            width: 100%;
+            max-width: 600px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #222;
+            font-size: 1.6rem;
+        }
+
+        form div {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input[type="float"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            cursor: pointer;
+            width: 100%;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s;
+        }
+
+        button:hover {
+            background-color: #218838;
+            transform: scale(1.02);
+        }
+
+        .back-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .back-link a {
+            display: inline-block;
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.2s;
+        }
+
+        .back-link a:hover {
+            background-color: #0056b3;
+            transform: scale(1.02);
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 1.3rem;
+            }
+
+            input[type="float"],
+            button {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Enter Apple Features in numbers for Prediction</h1>
+        <form action="/submit" method="post">
+            <div>
+                <label for="Size">Size</label>
+                <input type="float" step="any" id="Size" name="Size" required>
+            </div>
+            <div>
+                <label for="Weight">Weight</label>
+                <input type="float" step="any" id="Weight" name="Weight" required>
+            </div>
+            <div>
+                <label for="Sweetness">Sweetness</label>
+                <input type="float" step="any" id="Sweetness" name="Sweetness" required>
+            </div>
+            <div>
+                <label for="Crunchiness">Crunchiness</label>
+                <input type="float" step="any" id="Crunchiness" name="Crunchiness" required>
+            </div>
+            <div>
+                <label for="Juiciness">Juiciness</label>
+                <input type="float" step="any" id="Juiciness" name="Juiciness" required>
+            </div>
+            <div>
+                <label for="Ripeness">Ripeness</label>
+                <input type="float" step="any" id="Ripeness" name="Ripeness" required>
+            </div>
+            <div>
+                <label for="Acidity">Acidity</label>
+                <input type="float" step="any" id="Acidity" name="Acidity" required>
+            </div>
+            <div>
+                <button type="submit">Predict Apple Quality</button>
+            </div>
+        </form>
+        <div class="back-link">
+            <a href="/">← Back to Home</a>
+        </div>
+    </div>
+</body>
+</html>
