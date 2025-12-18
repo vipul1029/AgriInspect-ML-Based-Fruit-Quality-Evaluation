@@ -41,6 +41,7 @@ With **AgriInspect**, I wanted to:
 
 ## 📂 Project Structure
 
+```
 AgriInspect-ML-Based-Fruit-Quality-Evaluation/
 ├── app1.py # Flask application
 ├── best.pkl # Trained ML model
@@ -55,7 +56,7 @@ AgriInspect-ML-Based-Fruit-Quality-Evaluation/
 ├── index.html
 ├── output.html
 └── inner-page.html
-
+```
 
 ---
 
