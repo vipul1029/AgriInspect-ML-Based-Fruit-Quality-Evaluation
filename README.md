@@ -93,4 +93,4 @@ AgriInspect-ML-Based-Fruit-Quality-Evaluation/
 ## 👨‍💻 Author
 
 **Vipul Kumar**  
-B.Tech CSE, VIT Vellore 
+B.Tech CSE, VIT Vellore
