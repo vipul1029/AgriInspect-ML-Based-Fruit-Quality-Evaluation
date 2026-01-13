@@ -1,46 +1,45 @@
 # Import Libraries
+import os
 import numpy as np
 import pickle
 from flask import Flask, request, render_template
 
-app = Flask(__name__, template_folder='templates')
-# Add File Path for Model
-pickle_file_path = "best.pkl"
+# Flask App Initialization
+app = Flask(
+    __name__,
+    template_folder="templates",
+    static_folder="static"
+)
 
-with open(pickle_file_path, 'rb') as file:
-    try:
-        model = pickle.load(file)
-    except ValueError as e:
-        if "itemsize" in str(e):
-            # Handle incompatible dtype
-            msg = "Incompatible dtype issue in the node array."
-            raise ValueError(msg)
-        else:
-            raise e
+# Load ML Model
+MODEL_PATH = "best.pkl"
 
-@app.route('/')
+with open(MODEL_PATH, "rb") as file:
+    model = pickle.load(file)
+
+# Routes
+@app.route("/")
 def home():
-    return render_template('index.html')
+    return render_template("index.html")
 
-@app.route('/predict', methods=["POST", "GET"])
+@app.route("/predict", methods=["GET", "POST"])
 def predict():
     return render_template("inner-page.html")
 
-@app.route('/submit', methods=["POST", "GET"])
+@app.route("/submit", methods=["POST"])
 def submit():
-    # Read inputs
-    input_feature = [int(float(x)) for x in request.form.values()]
-    input_feature = [np.array(input_feature)]
+    # Read form inputs
+    input_features = [int(float(x)) for x in request.form.values()]
+    input_features = np.array([input_features])
 
-    # Make Predictions
-    print(type(model))
-    prediction = model.predict(input_feature)
-    prediction = int(prediction)
+    # Prediction
+    prediction = model.predict(input_features)[0]
 
-    if prediction == 0:
-        return render_template("output.html", result="Bad")
-    else:
-        return render_template("output.html", result="Good")
+    result = "Good" if int(prediction) == 1 else "Bad"
 
+    return render_template("output.html", result=result)
+
+# Render Deployment Entry Point
 if __name__ == "__main__":
-    app.run(debug=True, port=2000)
+    port = int(os.environ.get("PORT", 2000))
+    app.run(host="0.0.0.0", port=port)
