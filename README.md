@@ -3,6 +3,8 @@
 AgriInspect is a machine learning–based web application that helps predict **fruit quality** using key attributes.  
 The goal of this project is to understand how machine learning models can be used in real-world agricultural applications and how they can be integrated into a simple web app.
 
+🔗 Live Demo:
+👉 https://agriinspect-ml-based-fruit-quality-w0sm.onrender.com/
 
 ---
 
